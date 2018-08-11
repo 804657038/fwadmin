@@ -9,7 +9,8 @@ return [
     'static_path' => '',
     'controller' => [
         //需要生成文档的类
-        'app\index\controller\index'
+        'app\\index\\controller\\Index',
+        'app\\index\\controller\\Api'
     ],
     'filter_method' => [
         //过滤 不解析的方法名称

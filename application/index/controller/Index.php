@@ -4,33 +4,31 @@ namespace app\index\controller;
 use think\facade\Session;
 use think\Controller;
 /**
- * @title 测试demo
+ * @title 测试
  * @description 接口说明
  */
 class Index extends Controller
 {
     /**
-     * @title 测试demo接口
+     * @title 测试
      * @description 接口说明
      * @author 开发者姓名
      * @url /index/index/index
      *
-     * @param name:id type:int require:1 default:1 other: desc:唯一ID
+     * @param name: type:int require:1 default:1 other: desc:
      *
-     * @return name:名称
-     * @return mobile:手机号
-     * @return list_messages:消息列表@
-     * @list_messages message_id:消息ID content:消息内容
+     * @return id:分类ID
+     * @return name:分类名称
+     * @return attrs:分类属性@
+     * @attrs name:属性名称 id:属性ID attr:属性的属性
      */
    public function index(){
-        $this->result([
-            "name"=>'测试',
-            "mobile"=>'手机号码',
-            "list_messages"=>[
-                "message_id"=>'ID',
-                "content"=>"留言内容"
-            ]
-        ],200,'获取成功','json');
+        $list=db('cate')->where('display',1)->order('listorder asc')->select();
+        foreach ($list as $key => $value) {
+            $attrs=db('cate_attr')->where('id','in',$value['attr_id'])->select();
+            $list[$key]['attrs']=$attrs;    
+        }
+        $this->result($list,200,'调用成功!','json');
    }
 
 }
