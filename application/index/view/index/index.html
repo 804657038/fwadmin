@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<form action="">
+    <table>
+        <tr>
+            <td>昵称</td>
+            <td><input type="text" name="username" class="user"></td>
+        </tr>
+        <tr>
+            <td>内</td>
+            <td>
+                <textarea name="" id="" cols="30" rows="10" class="tree"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="button" class="sub">提交</button></td>
+        </tr>
+    </table>
+</form>
+<ul class="tt">
+    <li>
+        昵称昵称：我留言了，我留言了
+    </li>
+</ul>
+<script>
+     $('.sub').click(function(){
+          var stc= $('.user').val()+':'+$('.tree').val();
+          var li='<li>'+stc+'</li>';
+
+
+
+     });
+</script>
+</body>
+</html>
