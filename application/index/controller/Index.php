@@ -13,7 +13,7 @@ class Index extends Controller
      * @title 测试demo接口
      * @description 接口说明
      * @author 开发者姓名
-     * @url /api/demo
+     * @url /index/index/index
      *
      * @param name:id type:int require:1 default:1 other: desc:唯一ID
      *
@@ -21,11 +21,16 @@ class Index extends Controller
      * @return mobile:手机号
      * @return list_messages:消息列表@
      * @list_messages message_id:消息ID content:消息内容
-     * @list_messages name:名称 mobile:手机号
      */
    public function index(){
-
-       return view();
+        $this->result([
+            "name"=>'测试',
+            "mobile"=>'手机号码',
+            "list_messages"=>[
+                "message_id"=>'ID',
+                "content"=>"留言内容"
+            ]
+        ],200,'获取成功','json');
    }
 
 }
